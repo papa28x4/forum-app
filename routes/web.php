@@ -2,9 +2,11 @@
 
 
 use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Pages\FollowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages\PageController;
 use App\Http\Controllers\Pages\HomeController;
+use App\Http\Controllers\Pages\ProfileController;
 use App\Http\Controllers\Pages\ReplyController;
 use App\Http\Controllers\pages\TagController;
 use App\Http\Controllers\Pages\ThreadController;
@@ -35,6 +37,8 @@ Route::group(['prefix' => 'threads', 'as' => 'threads.'], function(){
     Route::get('/{thread:slug}/edit', [ThreadController::class, 'edit'])->name('edit');
     Route::put('/{thread:slug}/update', [ThreadController::class, 'update'])->name('update');
     Route::get('/{category:slug}/{thread:slug}', [ThreadController::class, 'show' ])->name('show');
+    Route::get('{category:slug}/{thread:slug}/subscribe', [ThreadController::class, 'subscribe'])->name('subscribe');
+    Route::get('{category:slug}/{thread:slug}/unsubscribe', [ThreadController::class, 'unsubscribe'])->name('unsubscribe');
 
     Route::group(['as' => 'tags.'], function(){
         Route::get('/{tag:slug}', [TagController::class, 'index'])->name('index');
@@ -65,6 +69,11 @@ Route::group(['prefix' => 'dashboard', 'as'=> 'dashboard.'], function(){
     });
 });
 
+//Profile
+Route::get('user/{user:slug}', [ProfileController::class, 'show'])->name('profile');
+
+//Follows
+Route::post('profile/user/{user:slug}/follow', [FollowController::class, 'store'])->name('user.follow');
 
 // dashboard.notifications.index
 Route::get('/category/discussion/topic', [PageController::class, 'single'])->name('single');

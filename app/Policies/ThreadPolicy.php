@@ -68,6 +68,16 @@ class ThreadPolicy
         return $thread->isAuthoredBy($user) || $user->isModerator() || $user->isAdmin();
     }
 
+
+    public function subscribe(User $user, Thread $thread): bool
+    {
+        return !$thread->hasSubscriber($user);
+    }
+
+    public function unsubscribe(User $user, Thread $thread): bool
+    {
+        return $thread->hasSubscriber($user);
+    }
     /**
      * Determine whether the user can restore the model.
      *

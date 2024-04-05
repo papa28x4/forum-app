@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\ReplyWasCreated;
+use App\Listeners\AwardPointsForCreatingReply;
 use App\Listeners\SendNewReplyNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -21,8 +22,13 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         ReplyWasCreated::class => [
-            SendNewReplyNotification::class
+            SendNewReplyNotification::class,
+            AwardPointsForCreatingReply::class
         ],
+        // ThreadWasCreated::class => [
+        //     SendNewThreadNotification::class,
+        //      AwardPointsForCreatingThread::class
+        // ]
     ];
 
     /**

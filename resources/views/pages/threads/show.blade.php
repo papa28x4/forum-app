@@ -1,7 +1,7 @@
 <x-guest-layout>
     <main class="grid grid-cols-4 gap-8 mt-8 wrapper">
 
-        <x-partials.sidenav />
+        <x-partials.sidenav :thread="$thread" />
 
         <section class="flex flex-col col-span-3 gap-y-4">
 
@@ -56,9 +56,11 @@
 
             {{-- Replies --}}
             <div class="mt-3 space-y-5">
+
                 <h2 class="text-sm font-bold uppercase">Replies</h2>
                 <hr>
                 @foreach ($thread->replies() as $reply)
+                
                 <livewire:reply.update :reply="$reply" :key="$reply->id()">
              
                 @endforeach

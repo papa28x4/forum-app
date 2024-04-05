@@ -1,15 +1,14 @@
 <div>
-    <div x-data="{
+    <div x-cloak x-data="{
             editReply: false,
             focus: function(){
                 const textInput = this.$refs.textInput;
                 textInput.focus();
             }
         }"
-    x-cloak>
+    >
 
         <div x-show="!editReply" class="relative">
-
 
             <div class="p-5 space-y-4 text-gray-500 bg-white border-l-4 border-blue-300 shadow">
                 <div class="grid grid-cols-8">
@@ -25,10 +24,7 @@
                         <div class="absolute flex justify-between w-full bottom-1">
                             {{-- Likes --}}
                             <div class="flex space-x-5 text-gray-500">
-                                <a href="" class="flex items-center space-x-2">
-                                    <x-heroicon-o-heart class="w-5 h-5 text-red-300" />
-                                    <span class="text-xs font-bold">30</span>
-                                </a>
+                               <livewire:like-reply :reply="App\Models\Reply::find($replyId)"  />
                             </div>
 
                             {{-- Date Posted --}}
@@ -49,12 +45,9 @@
                 @endcan
 
                 @can('delete', App\Models\Reply::find($replyId))
-                <livewire:reply.delete :replyId="$replyId" :wire:key="$replyId" :page="request()->fullUrl()" />
+                <livewire:reply.delete :replyId="$replyId" wire:key="$replyId" :page="request()->fullUrl()" />
                 @endcan
             </div>
-            
-
-            
             
         </div>
        

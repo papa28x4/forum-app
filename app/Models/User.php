@@ -2,6 +2,11 @@
 
 namespace App\Models;
 
+use App\Contracts\Pointable;
+use App\Traits\AdjustTime;
+use App\Traits\HasFollows;
+use App\Traits\HasPoints;
+use App\Traits\HasReplies;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,8 +15,9 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use App\Traits\ModelHelpers;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, Pointable
 {
     use HasApiTokens;
     use HasFactory;
@@ -19,6 +25,10 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use TwoFactorAuthenticatable;
     use ModelHelpers;
+    use AdjustTime;
+    use HasReplies;
+    use HasFollows;
+    use HasPoints;
 
     CONST DEFAULT = 1;
     CONST MODERATOR = 2;
@@ -35,7 +45,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'bio',
-        'type'
+        'type',
+        'slug'
     ];
 
     /**
@@ -93,4 +104,33 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->type === self::ADMIN;
     }
+
+    public function threads()
+    {
+        return $this->threadsRelation;
+    }
+
+    public function threadsRelation(): HasMany
+    {
+        return $this->hasMany(Thread::class, 'author_id');
+    }
+
+    public function latestThreads(int $amount=5)
+    {
+        $this->threadsRelation()->latest()->limit($amount)->get();
+    }
+
+    public function deleteThreads()
+    {
+        foreach($this->threads() as $thread)
+        {
+            $thread->delete();
+        }
+    }
+
+    public function countThreads(): int
+    {
+        return $this->threadsRelation()->count();
+    }
+
 }

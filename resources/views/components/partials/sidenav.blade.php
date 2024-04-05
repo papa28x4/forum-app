@@ -1,23 +1,45 @@
 <aside class="col-span-1 space-y-6 text-gray-600">
 
     <div class="p-4 space-y-4 bg-white shadow">
-        <div class="pb-4 border-b border-gray-200">
-
+        
+        <div class="{{(auth()->user() && request()->routeIs('threads.show'))  ? 'pb-4 border-b border-gray-200' : '' }}">
+        
             {{-- Start Discusson Button --}}
             <a href="{{ route('threads.create') }}" class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase transition bg-blue-500 border border-transparent rounded hover:bg-blue-400 active:bg-blue-600 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25" }}>
                 {{ __('Start a new discussion') }}
             </a>
         </div>
 
-        <div class="pb-4 space-y-4">
-            {{-- Subscribe to thread button --}}
-            <x-buttons.secondary>
-                {{ __('Subscribe to Thread') }}
-            </x-buttons.secondary>
-            <p class="text-sm text-gray-500">
-                Subscribe to be notified whenever new discussions are created in the "Category One" forum.
-            </p>
-        </div>
+        @auth
+            @if(request()->routeIs('threads.show'))
+                <div class="pb-4 space-y-4">
+                    {{-- Subscribe to thread button --}}
+                    @can('unsubscribe', $thread)
+                        <x-links.subscribe href="{{route('threads.unsubscribe', [$thread->category->slug(), $thread->slug()])}}" >
+                            {{ __('Unsubscribe to Thread') }}
+                        </x-links.subscribe>
+                        <p class="text-sm text-gray-500">
+                            Unsubscribe from this thread
+                        </p>
+                    @elsecan('subscribe', $thread)
+                        <x-links.subscribe href="{{route('threads.subscribe', [$thread->category->slug(), $thread->slug()])}}" >
+                            {{ __('Subscribe to Thread') }}
+                        </x-links.subscribe>
+                        <p class="text-sm text-gray-500">
+                            Subscribe to be notified of changes to this thread.
+                        </p>
+                    @endcan
+                    
+                    {{-- <x-buttons.secondary>
+                        {{ __('Subscribe to Thread') }}
+                    </x-buttons.secondary>
+                    <p class="text-sm text-gray-500">
+                        Subscribe to be notified whenever changest to this thread.
+                    </p> --}}
+                </div>
+            @endif
+        @endauth
+        
     </div>
 
     {{-- Categories --}}

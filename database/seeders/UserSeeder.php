@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Traits\HasForeignKeys;
 use App\Traits\TruncateTable;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -24,21 +25,24 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => bcrypt('password'),
+            'slug' => Str::slug('Admin'),
+            'password' => bcrypt('12345678'),
             'type' => User::ADMIN
         ]);
 
         User::factory()->create([
             'name' => 'Team Mod',
             'email' => 'moderator@example.com',
-            'password' => bcrypt('password'),
+            'slug' => Str::slug('Team Mod'),
+            'password' => bcrypt('12345678'),
             'type' => User::MODERATOR
         ]);
 
         User::factory()->create([
             'name' => 'John Doe',
             'email' => 'johndoe@example.com',
-            'password' => bcrypt('password'),
+            'slug' => Str::slug('John Doe'),
+            'password' => bcrypt('12345678'),
             'type' => User::DEFAULT
         ]);
 
