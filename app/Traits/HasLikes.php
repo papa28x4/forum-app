@@ -36,14 +36,15 @@ trait HasLikes
     {
         $this->likesRelation()->create(['user_id' => $user->id]);
 
-        // $this->unsetRelation('likesRelation');
+        $this->unsetRelation('likesRelation');
     }
 
     public function disLikedBy(User $user)
     {
+        // dd('came');
         optional($this->likesRelation()->where('user_id', $user->id)->first())->delete();
 
-        // $this->unsetRelation('likesRelation');
+        $this->unsetRelation('likesRelation');
     }
 }
 

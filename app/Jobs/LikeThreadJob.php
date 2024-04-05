@@ -12,7 +12,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class LikeThreadJob implements ShouldQueue
+class LikeThreadJob 
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 

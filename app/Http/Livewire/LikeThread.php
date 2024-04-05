@@ -11,23 +11,34 @@ use Livewire\Component;
 
 class LikeThread extends Component
 {
-    use DispatchesJobs;
+    // use DispatchesJobs;
 
-    public $thread;
+    public $thread, $count;
 
     public function mount(Thread $thread)
     {
         $this->thread = $thread;
+        $this->count = count($this->thread->likes());
     }
 
     public function toggleLike()
     {
-        // dd('LIKED');
-        if($this->thread->isLikedBy(Auth::user())){
-            $this->dispatchSync(new UnlikeThreadJob($this->thread, Auth::user()));
+        // dd(Auth::user()->id);
+        // if($this->thread->isLikedBy(Auth::user())){
+        //     $this->dispatchSync(new UnlikeThreadJob($this->thread, Auth::user()));
+        // }else{
+        //     $this->dispatchSync(new LikeThreadJob($this->thread, Auth::user()));
+        // }
+        if($this->thread->isLikedBy(auth()->user())){
+            $this->thread->disLikedBy(auth()->user());
         }else{
-            $this->dispatchSync(new LikeThreadJob($this->thread, Auth::user()));
+            $this->thread->likedBy(auth()->user());
         }
+
+        $this->thread->unsetRelation('likesRelation');
+       
+        $this->count = count($this->thread->likes());
+        
     }
 
     public function render()
