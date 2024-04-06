@@ -2,19 +2,6 @@
 
 A web app to allow like-minded users interact and share knowledge
 
-For quick navigation:
-
--   [Code of Conduct](#coc)
--   [Contribution Guide](#contribute)
--   [Learning Laravel](#learn-laravel)
--   [License](#license)
-
-## <a name="coc"></a> Code of Conduct
-
-Please read FG Expense Tracker's [Code of Conduct](https://github.com/hngi/expenseng/blob/master/CODE_OF_CONDUCT.md). It is important that you follow the code to ensure that we all remain professional and fair to each other.
-
-## <a name="contribute"></a> Contribution Guide
-
 ### Setting up your workspace
 
 Before running this app, locally make sure you have the following software installed:
