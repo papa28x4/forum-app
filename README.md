@@ -13,7 +13,7 @@ Before running this app, locally make sure you have the following software insta
 Now, follow this steps to start contributing:
 
 1. Clone this repository with `git clone https://github.com/papa28x4/forum-app.git`
-2. Run `cd expenseng`
+2. Run `cd forum-app`
 3. Run `composer install`
 4. Run `npm install`
 5. Run `php artisan key:generate --show` to retrieve a base64 encoded string for Laravel's `APP_KEY` in `.env`
