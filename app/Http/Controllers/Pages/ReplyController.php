@@ -24,9 +24,7 @@ class ReplyController extends Controller
 
         $this->dispatchSync(CreateReplyJob::fromRequest($request));
 
-        return back();
-        // return redirect(session('current_thread'))->with('success', 'Reply Created');
-        // return back()->with('success', 'Reply Created');
+        return back()->with('success', 'Reply Created');
     }
 
     public function redirect($id, $type)

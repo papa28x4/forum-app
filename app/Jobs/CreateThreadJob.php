@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\ThreadWasCreated;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -57,7 +58,7 @@ class CreateThreadJob implements ShouldQueue
         $thread->authoredBy($this->author);
         $thread->saveThreadWithTags($this->tags);
         
-       
+        event(new ThreadWasCreated($thread));
 
         return $thread;
     }

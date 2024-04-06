@@ -37,7 +37,7 @@ class Update extends Component
 
     public function deleteReply($page)
     {
-        // session()->flash('success', 'Reply Deleted');
+        session()->flash('success', 'Reply Deleted');
         return redirect($page);
     }
 

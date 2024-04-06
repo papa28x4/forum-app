@@ -10,13 +10,15 @@ use App\Contracts\ReplyAble;
 use App\Contracts\Subscriptionable;
 use App\Traits\HasLikes;
 use App\Traits\HasSubscriptions;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
-class Thread extends Model implements ReplyAble, Subscriptionable
+class Thread extends Model implements ReplyAble, Subscriptionable, Viewable
 {
     use HasFactory;
     use HasTags;
@@ -25,6 +27,7 @@ class Thread extends Model implements ReplyAble, Subscriptionable
     use HasReplies;
     use HasLikes;
     use HasSubscriptions;
+    use InteractsWithViews;
     // use HasTeams;
 
     const TABLE = 'threads';

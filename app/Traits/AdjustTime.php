@@ -14,6 +14,6 @@ trait AdjustTime {
 
     public function createdAt()
     {
-      return $this->created_at->format('d-m-y');
+      return $this->created_at->format('d-m-Y');
     }
 }

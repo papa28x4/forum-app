@@ -78,7 +78,7 @@
 
                                 {{-- Button --}}
                                 <x-buttons.primary>
-                                    {{ __('Create') }}
+                                    {{ __('Update') }}
                                 </x-buttons.primary>
                         </x-form>
                     </div>

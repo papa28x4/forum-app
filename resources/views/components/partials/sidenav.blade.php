@@ -51,7 +51,7 @@
         <ul class="space-y-4">
             @foreach($categories as $category)
             <li>
-                <a href="#" class="flex items-center justify-between">
+                <a href="{{route('categories.category', $category->slug)}}" class="flex items-center justify-between">
                     {{$category->name}}
                     <span class="px-2 text-white bg-green-300 rounded">{{$category->threads_count}}</span>
                 </a>

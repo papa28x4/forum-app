@@ -28,4 +28,26 @@ trait HasPoints
     {
         return (new Point())->addAwards($this, $amount, $message);
     }
+
+    public function rank()
+    {
+        $currentPoints = $this->currentPoints();
+
+        if($currentPoints <= 100){
+            return 'Level 1';
+        }elseif ($currentPoints <= 200) {
+            return 'Level 2';
+        }elseif ($currentPoints <= 300) {
+            return 'Level 3';
+        }elseif ($currentPoints <= 400) {
+            return 'Level 4';
+        }elseif ($currentPoints <= 500) {
+            return 'Level 5';
+        }elseif ($currentPoints <= 600) {
+            return 'Level 6';
+        }elseif ($currentPoints > 600) {
+            return 'Level 7';
+        }
+
+    }
 }

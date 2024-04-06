@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Pages\CategoryController;
 use App\Http\Controllers\Pages\FollowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pages\PageController;
@@ -43,6 +44,10 @@ Route::group(['prefix' => 'threads', 'as' => 'threads.'], function(){
     Route::group(['as' => 'tags.'], function(){
         Route::get('/{tag:slug}', [TagController::class, 'index'])->name('index');
     });
+});
+
+Route::group(['prefix' => 'categories', 'as' => 'categories.'], function(){
+    Route::get('/{category:slug}', [CategoryController::class, 'index'])->name('category');
 });
 
 Route::group(['prefix' => 'replies', 'as'=> 'replies.'], function(){

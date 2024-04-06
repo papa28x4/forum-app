@@ -37,6 +37,12 @@
                               <livewire:like-thread :thread="$thread" />
                             </div>
 
+                             {{-- Views Count --}}
+                             <div class="flex items-center space-x-2">
+                                <x-heroicon-o-eye class="w-4 h-4 text-blue-300" />
+                                <span class="text-xs text-gray-500">{{views($thread)->count()}}</span>
+                            </div>
+
                             {{-- Date Posted --}}
                             <div class="flex items-center text-xs text-gray-500">
                                 <x-heroicon-o-clock class="w-4 h-4 mr-1" />
