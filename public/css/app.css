@@ -2432,6 +2432,9 @@ select {
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
 }
+.text-gray-500{
+  word-wrap: break-word
+}
 @media (min-width: 640px) {
 
   .sm\:col-span-4 {

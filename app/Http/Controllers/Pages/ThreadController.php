@@ -71,6 +71,8 @@ class ThreadController extends Controller
      */
     public function show(Category $category, Thread $thread)
     {
+        // return $thread->subscriptions();
+        
         // Session::put('current_thread', request()->fullUrl());
         $expiresAt = now()->addHours(12);
         views($thread)

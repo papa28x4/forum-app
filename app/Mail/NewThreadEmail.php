@@ -4,12 +4,13 @@ namespace App\Mail;
 
 use App\Models\Reply;
 use App\Models\Subscription;
+use App\Models\Thread;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewReplyEmail extends Mailable
+class NewThreadEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +19,7 @@ class NewReplyEmail extends Mailable
      *
      * @return void
      */
-    public function __construct(public Reply $reply, public ?Subscription $subscription = null)
+    public function __construct(public Thread $thread)
     {
         //
     }
@@ -30,7 +31,7 @@ class NewReplyEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject("Re: {$this->reply->replyAble()->replyAbleSubject()}")
-            ->markdown('emails.new_reply');
+        return $this->subject("{$this->thread->title()}")
+            ->markdown('emails.new_thread');
     }
 }

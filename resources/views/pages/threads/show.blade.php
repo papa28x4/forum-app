@@ -9,7 +9,7 @@
 
             <small class="text-sm text-gray-400">
                 <a href="{{route('threads.index')}}">Threads</a> > 
-                <a href="">{{$category->name()}}</a> > 
+                <a href="{{route('categories.category', $category->slug)}}">{{$category->name()}}</a> > 
                {{ $thread->title() }}
             </small>
 

@@ -9,7 +9,7 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function show(User $user): View
+    public function show(User $user)
     {
         return view('pages.profiles.show', compact('user'));
     }
