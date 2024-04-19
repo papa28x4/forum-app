@@ -11,6 +11,7 @@ use App\Http\Controllers\Pages\ProfileController;
 use App\Http\Controllers\Pages\ReplyController;
 use App\Http\Controllers\pages\TagController;
 use App\Http\Controllers\Pages\ThreadController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +91,7 @@ Route::get('dashboard/users', [PageController::class, 'users'])->name('users');
 Route::get('/dashboard/categories/index', [PageController::class, 'categoriesIndex'])->name('categories.index');
 Route::get('/dashboard/categories/create', [PageController::class, 'categoriesCreate'])->name('categories.create');
 
-
+Route::get('test', [TestController::class, 'index'])->name('test.index');
 
 Route::middleware([
     'auth:sanctum',

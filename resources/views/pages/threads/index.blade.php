@@ -13,7 +13,7 @@
                 @endforeach
 
                 {{-- Pagination --}}
-                <div class="mt-8">
+                <div class="mt-8" id="pagination">
                     {{$threads->render()}}
                 </div>
             </div>

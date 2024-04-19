@@ -14,7 +14,7 @@
                 <h2 class="text-xl tracking-wide hover:text-blue-400">
                     {{$thread->title()}}
                 </h2>
-                <p class="text-gray-500">
+                <p id="excerpt" class="text-gray-500">
                     {{$thread->excerpt()}}
                 </p>
             </a>

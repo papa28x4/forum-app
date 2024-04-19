@@ -2432,8 +2432,13 @@ select {
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
 }
-.text-gray-500{
-  word-wrap: break-word
+#excerpt.text-gray-500{
+  word-wrap: break-word;
+  padding-right: 70px;
+}
+#pagination span.text-gray-500{
+    --tw-bg-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 @media (min-width: 640px) {
 
