@@ -11,10 +11,6 @@ class CategoryController extends Controller
 {
     public function index(Category $category)
     {
-        $threads = $category->threads()->latest()->paginate(10); 
-
-        return view('pages.threads.index', [
-            'threads' => $threads
-        ]);
+        return view('pages.threads.index', compact('category'));
     }
 }

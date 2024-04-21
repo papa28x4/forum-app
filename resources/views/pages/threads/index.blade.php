@@ -8,14 +8,20 @@
                 {{-- Alerts --}}
                 <x-alerts.main />
 
-                @foreach ($threads as $thread)
-                    <x-thread :thread="$thread" />
-                @endforeach
-
-                {{-- Pagination --}}
-                <div class="mt-8" id="pagination">
-                    {{$threads->render()}}
-                </div>
+                @if(request()->routeIs('categories.category'))
+                    <small class="text-sm text-gray-400">
+                        <a href="{{route('threads.index')}}">Threads</a> > 
+                        <span>Categories</span> >
+                       
+                        <span>{{$category->name}}</span>
+                    </small>
+                    
+                    <livewire:thread.index :category_id="$category->id"/>
+                @else
+                    <livewire:thread.index />
+                @endif
+                
+               
             </div>
 
         </section>

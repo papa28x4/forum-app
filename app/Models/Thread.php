@@ -36,12 +36,12 @@ class Thread extends Model implements ReplyAble, Subscriptionable, Viewable
         'title', 'body', 'slug', 'category_id', 'author_id'
     ];
 
-    protected $with = [
-        'authorRelation',
-        'category',
-        'tagsRelation',
-        'likesRelation'
-    ];
+    // protected $with = [
+    //     'authorRelation',
+    //     'category',
+    //     'tagsRelation',
+    //     'likesRelation',
+    // ];
 
     public function category(): BelongsTo
     {
@@ -90,5 +90,11 @@ class Thread extends Model implements ReplyAble, Subscriptionable, Viewable
         return $query->whereHas('tagsRelation', function($query) use ($tag){
             $query->where('tags.slug', $tag);
         });
+    }
+
+    
+    public function viewsRelation(): MorphMany
+    {
+        return $this->morphMany(View::class, 'likesRelation', 'likeable_type', 'likeable_id');
     }
 }

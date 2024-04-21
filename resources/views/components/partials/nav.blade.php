@@ -15,8 +15,10 @@
 
             {{-- Search Topic --}}
             
-
-            <livewire:search.search-component >
+            @if(in_array(\Route::current()->getName(), Search::ROUTES))
+                <livewire:search.search-component >
+            @endif
+           
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
 

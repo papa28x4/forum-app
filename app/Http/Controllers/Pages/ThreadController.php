@@ -33,9 +33,7 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        return view('pages.threads.index', [
-            'threads' => Thread::latest('updated_at')->paginate(10)
-        ]);
+        return view('pages.threads.index');
     }
 
     /**
