@@ -132,4 +132,19 @@ class ThreadController extends Controller
         return redirect()->route('threads.show', [$thread->category->slug(), $thread->slug()])
                 ->with('success', 'You have been unsubscribed from this thread');
     }
+
+    public function popularAllTime()
+    {
+        return view('pages.threads.index', ["pageKey" => 'allTime']);
+    }
+
+    public function popularThisWeek()
+    {
+        return view('pages.threads.index', ["pageKey" => 'weekly']);
+    }
+
+    public function noReply()
+    {
+        return view('pages.threads.index', ["pageKey" => 'noReply']);
+    }
 }

@@ -9,16 +9,18 @@
                 <x-alerts.main />
 
                 @if(request()->routeIs('categories.category'))
-                    <small class="text-sm text-gray-400">
-                        <a href="{{route('threads.index')}}">Threads</a> > 
+                    <small class="text-sm text-gray-400 ">
+                        <a href="{{route('threads.index')}}" class="hover:text-blue-400">Threads</a> > 
                         <span>Categories</span> >
                        
                         <span>{{$category->name}}</span>
                     </small>
                     
                     <livewire:thread.index :category_id="$category->id"/>
-                @else
+                @elseif(request()->routeIs('threads.index'))
                     <livewire:thread.index />
+                @else
+                    <livewire:thread.index :page_key="$pageKey"/>
                 @endif
                 
                

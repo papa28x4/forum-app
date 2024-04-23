@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Traits\HasForeignKeys;
 
 class ThreadsTableSeeder extends Seeder
 {
-    use HasForeignKeys;
+
     /**
      * Auto generated seed file
      *
@@ -15,7 +14,7 @@ class ThreadsTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->disableForeignKey();   
+        
 
         \DB::table('threads')->delete();
         
@@ -457,8 +456,8 @@ class ThreadsTableSeeder extends Seeder
                 'slug' => 'deleniti-porro-reprehenderit-ut-veniam-eaque-qui-qui',
                 'author_id' => 8,
                 'category_id' => 5,
-                'created_at' => '2024-02-17 01:05:48',
-                'updated_at' => '2024-02-17 01:05:48',
+                'created_at' => '2024-02-20 01:05:48',
+                'updated_at' => '2024-02-20 01:05:48',
             ),
             40 => 
             array (
@@ -495,17 +494,6 @@ class ThreadsTableSeeder extends Seeder
             ),
             43 => 
             array (
-                'id' => 44,
-                'title' => 'Est unde sit nostrum.',
-                'body' => 'Consequatur perferendis doloribus assumenda quae voluptatibus distinctio. Sed ea natus et qui quidem et totam. Similique quisquam doloremque voluptates iusto optio sed.',
-                'slug' => 'eligendi-harum-ut-quia-et-alias-vel-qui-veniam',
-                'author_id' => 7,
-                'category_id' => 7,
-                'created_at' => '2024-02-17 01:05:48',
-                'updated_at' => '2024-02-17 01:05:48',
-            ),
-            44 => 
-            array (
                 'id' => 45,
                 'title' => 'Corporis amet dolor deleniti.',
                 'body' => 'Quidem dignissimos architecto ratione. Labore iusto autem delectus. Qui ut eligendi aliquam fugiat.',
@@ -515,7 +503,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            45 => 
+            44 => 
             array (
                 'id' => 46,
                 'title' => 'Quia quidem dignissimos nisi.',
@@ -526,7 +514,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            46 => 
+            45 => 
             array (
                 'id' => 47,
                 'title' => 'At sapiente nihil debitis ut.',
@@ -537,7 +525,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            47 => 
+            46 => 
             array (
                 'id' => 48,
                 'title' => 'Quo et sequi commodi sit.',
@@ -548,7 +536,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            48 => 
+            47 => 
             array (
                 'id' => 49,
                 'title' => 'Fugiat est nostrum veniam.',
@@ -559,7 +547,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            49 => 
+            48 => 
             array (
                 'id' => 50,
                 'title' => 'Totam eos placeat vitae.',
@@ -570,7 +558,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-17 01:05:48',
                 'updated_at' => '2024-02-17 01:05:48',
             ),
-            50 => 
+            49 => 
             array (
                 'id' => 51,
                 'title' => 'Fluent JSON Testing',
@@ -581,7 +569,7 @@ class ThreadsTableSeeder extends Seeder
                 'created_at' => '2024-02-19 13:02:23',
                 'updated_at' => '2024-02-19 13:02:23',
             ),
-            51 => 
+            50 => 
             array (
                 'id' => 52,
                 'title' => 'Query Builder',
@@ -589,10 +577,10 @@ class ThreadsTableSeeder extends Seeder
                 'slug' => 'query-builder',
                 'author_id' => 3,
                 'category_id' => 6,
-                'created_at' => '2024-02-20 19:52:11',
-                'updated_at' => '2024-02-20 19:52:11',
+                'created_at' => '2024-02-21 19:52:11',
+                'updated_at' => '2024-02-21 19:52:11',
             ),
-            52 => 
+            51 => 
             array (
                 'id' => 53,
                 'title' => 'Testing Views',
@@ -600,22 +588,88 @@ class ThreadsTableSeeder extends Seeder
                 'slug' => 'testing-views',
                 'author_id' => 3,
                 'category_id' => 7,
-                'created_at' => '2024-02-20 21:06:38',
+                'created_at' => '2024-02-22 21:06:38',
                 'updated_at' => '2024-02-23 07:05:13',
+            ),
+            52 => 
+            array (
+                'id' => 57,
+                'title' => 'Come out Rand',
+                'body' => '<div>pklpl[pklpkl[pkl[p<br>lpk[pk[kl[[pkk<br>[p<br><br></div>',
+                'slug' => 'come-out-rand',
+                'author_id' => 7,
+                'category_id' => 6,
+                'created_at' => '2024-04-21 05:35:24',
+                'updated_at' => '2024-04-21 05:35:24',
             ),
             53 => 
             array (
-                'id' => 54,
-                'title' => 'CREATING CUSTOM VALIDATION MESSAGE',
-                'body' => '<div>Laravel provides a very fluent API for making HTTP requests to your application and examining the responses. For example, take a look at the feature test defined below</div>',
-                'slug' => 'creating-custom-validation-message',
-                'author_id' => 5,
-                'category_id' => 1,
-                'created_at' => '2024-02-20 21:55:57',
-                'updated_at' => '2024-02-20 21:55:57',
+                'id' => 59,
+                'title' => 'jjchjgb',
+                'body' => '<div>igugiugigiug</div>',
+                'slug' => 'jjchjgb',
+                'author_id' => 4,
+                'category_id' => 5,
+                'created_at' => '2024-04-23 07:02:55',
+                'updated_at' => '2024-04-23 07:02:55',
+            ),
+            54 => 
+            array (
+                'id' => 60,
+                'title' => 'tdfytfdytytfytf',
+                'body' => '<div> hhvhvhjvjhvjhvj</div>',
+                'slug' => 'tdfytfdytytfytf',
+                'author_id' => 4,
+                'category_id' => 6,
+                'created_at' => '2024-04-17 07:08:09',
+                'updated_at' => '2024-04-17 07:08:09',
+            ),
+            55 => 
+            array (
+                'id' => 62,
+                'title' => 'Climate change a myth or a reality?',
+                'body' => '<div>fdkskfskfklsnflkdnflknsdkfnskfnds</div>',
+                'slug' => 'climate-change-a-myth-or-a-reality',
+                'author_id' => 3,
+                'category_id' => 4,
+                'created_at' => '2024-04-22 08:08:30',
+                'updated_at' => '2024-04-22 08:08:30',
+            ),
+            56 => 
+            array (
+                'id' => 63,
+                'title' => 'Climate change a myth or a reality?',
+                'body' => '<div>fdkskfskfklsnflkdnflknsdkfnskfnds</div>',
+                'slug' => 'climate-change-a-myth-or-a-reality',
+                'author_id' => 3,
+                'category_id' => 4,
+                'created_at' => '2024-04-22 08:09:22',
+                'updated_at' => '2024-04-22 08:09:22',
+            ),
+            57 => 
+            array (
+                'id' => 64,
+                'title' => 'Save the world',
+            'body' => '<div>The function takes three arguments. Two (start and stop) are required, the third one (step) is optional when making a sequence of numbers but required for date sequence. </div>',
+                'slug' => 'save-the-world',
+                'author_id' => 3,
+                'category_id' => 3,
+                'created_at' => '2024-04-22 08:12:14',
+                'updated_at' => '2024-04-23 20:27:50',
+            ),
+            58 => 
+            array (
+                'id' => 65,
+                'title' => 'Definition and Usage',
+                'body' => '<div>This div contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will not break and wrap to the next line.</div>',
+                'slug' => 'definition-and-usage',
+                'author_id' => 3,
+                'category_id' => 2,
+                'created_at' => '2024-04-23 11:01:47',
+                'updated_at' => '2024-04-23 11:01:47',
             ),
         ));
         
-        $this->enableForeignKey(); 
+        
     }
 }

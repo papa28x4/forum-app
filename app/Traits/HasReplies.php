@@ -12,6 +12,11 @@ trait HasReplies
         return $this->repliesRelation;
     }
 
+    public function stackReplies()
+    {
+        return $this->repliesRelation()->latest()->get();
+    }
+
     public function latestReplies(int $amount = 5)
     {
         return $this->repliesRelation()->latest()->limit($amount);

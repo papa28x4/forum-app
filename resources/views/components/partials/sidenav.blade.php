@@ -51,9 +51,9 @@
         <ul class="space-y-4">
             @foreach($categories as $category)
             <li>
-                <a href="{{route('categories.category', $category->slug)}}" 
+                <a href="{{route('categories.category', $category->slug)}}"
                 
-                    class="cat-link flex items-center justify-between @if (route('categories.category', $category->slug) == url()->current()) active @endif ">
+                    class="cat-link flex items-center justify-between hover:text-blue-400 @if (route('categories.category', $category->slug) == url()->current()) active @endif">
                     {{$category->name}}
                     <span class="px-2 text-white bg-green-300 rounded">{{$category->threads_count}}</span>
                 </a>
@@ -65,19 +65,22 @@
     <div class="p-4 space-y-4 bg-white shadow">
         <ul class="space-y-4 text-gray-500">
             <li>
-                <a href="#" class="flex items-center space-x-2">
+                <a href="{{route('threads.popular_all_time')}}" 
+                class="cat-link flex items-center space-x-2 hover:text-blue-400 @if (route('threads.popular_all_time') == url()->current()) active @endif">
                     <x-heroicon-s-star class="w-5 h-5 text-yellow-500" />
                     <span>Popular this week</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-2">
+                <a href="{{route('threads.popular_this_week')}}" 
+                class="cat-link flex items-center space-x-2 hover:text-blue-400 @if (route('threads.popular_this_week') == url()->current()) active @endif">
                     <x-heroicon-s-fire class="w-5 h-5 text-red-600" />
                     <span>Popular all time</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center space-x-2">
+                <a href="{{route('threads.no_reply')}}" 
+                class="cat-link flex items-center space-x-2 hover:text-blue-400 @if (route('threads.no_reply') == url()->current()) active @endif">
                     <x-heroicon-s-chat class="w-5 h-5 text-blue-400" />
                     <span>No replies yet</span>
                 </a>

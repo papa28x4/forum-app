@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Thread;
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
@@ -20,15 +21,22 @@ class TestController extends Controller
         // $sorted = $collection->sortBy('price')->values()->all();
 
         // return $sorted;
-         
-        
-        $threads = Thread::has('repliesRelation')->withCount('repliesRelation')->get();
-
-
-        $a = $threads->sortByDesc('replies_relation_count')->values()->take(5);
        
+        
+        $threads = Thread::has('repliesRelation')->withCount('repliesRelation')
+                        ->whereBetween('created_at', [Carbon::now()->startOfWeek(Carbon::SUNDAY), Carbon::now()->endOfWeek(Carbon::SATURDAY)])
+                        ->orderBy('replies_relation_count', 'desc')->get();
 
-        return $a;
+
+        // $a = $threads->sortByDesc('replies_relation_count')->values()->take(5);
+       
+        // return User::with(['posts.comments' => function($query) {
+        //     $query->orderBy('comments.likes_count', 'desc');
+        // }])->get();
+
+
+
+        return $threads;
 
         // return $a;
         // return $threads->values()->all();

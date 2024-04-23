@@ -8,8 +8,8 @@
             <x-alerts.main />
 
             <small class="text-sm text-gray-400">
-                <a href="{{route('threads.index')}}">Threads</a> > 
-                <a href="{{route('categories.category', $category->slug)}}">{{$category->name()}}</a> > 
+                <a href="{{route('threads.index')}}" class="hover:text-blue-400">Threads</a> > 
+                <a href="{{route('categories.category', $category->slug)}}" class="hover:text-blue-400">{{$category->name()}}</a> > 
                {{ $thread->title() }}
             </small>
 
@@ -65,7 +65,7 @@
 
                 <h2 class="text-sm font-bold uppercase">Replies</h2>
                 <hr>
-                @foreach ($thread->replies() as $reply)
+                @foreach ($thread->stackReplies() as $reply)
                 
                 <livewire:reply.update :reply="$reply" :key="$reply->id()">
              
@@ -83,8 +83,7 @@
                         <input type="text" name="body" class="w-full bg-gray-100 shadow-inner focus:ring-blue-400">
                         <x-form.error for="body" />
 
-                        {{-- <input type="text" name="body" class="w-full bg-gray-200 
-                        border-none shadow-inner focus:ring-blue-400" /> --}}
+                        {{-- <input type="text" name="body" class="w-full bg-gray-200 border-none shadow-inner focus:ring-blue-400" /> --}}
                         {{-- <x-form.error for="body" /> --}}
 
                         <input type="hidden" name="replyAble_id" value="{{$thread->id()}}" />

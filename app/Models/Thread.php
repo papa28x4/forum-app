@@ -93,8 +93,8 @@ class Thread extends Model implements ReplyAble, Subscriptionable, Viewable
     }
 
     
-    public function viewsRelation(): MorphMany
-    {
-        return $this->morphMany(View::class, 'likesRelation', 'likeable_type', 'likeable_id');
-    }
+    // public function viewsRelation(): MorphMany
+    // {
+    //     return $this->morphMany(View::class, 'likesRelation', 'likeable_type', 'likeable_id');
+    // }
 }

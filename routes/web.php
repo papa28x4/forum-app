@@ -33,6 +33,11 @@ Route::group(['prefix' => 'threads', 'as' => 'threads.'], function(){
      * Url: /threads/*
      * Route: threads.*
      */
+    
+    Route::get('popular-all-time', [ThreadController::class, 'popularAllTime'])->name('popular_all_time');
+    Route::get('popular-this-week', [ThreadController::class, 'popularThisWeek'])->name('popular_this_week');
+    Route::get('no-reply', [ThreadController::class, 'noReply'])->name('no_reply');
+
     Route::get('/', [ThreadController::class, 'index'])->name('index');
     Route::get('/create', [ThreadController::class, 'create'])->name('create');
     Route::post('/', [ThreadController::class, 'store'])->name('store');
@@ -41,6 +46,7 @@ Route::group(['prefix' => 'threads', 'as' => 'threads.'], function(){
     Route::get('/{category:slug}/{thread:slug}', [ThreadController::class, 'show' ])->name('show');
     Route::get('{category:slug}/{thread:slug}/subscribe', [ThreadController::class, 'subscribe'])->name('subscribe');
     Route::get('{category:slug}/{thread:slug}/unsubscribe', [ThreadController::class, 'unsubscribe'])->name('unsubscribe');
+
 
     Route::group(['as' => 'tags.'], function(){
         Route::get('/{tag:slug}', [TagController::class, 'index'])->name('index');
